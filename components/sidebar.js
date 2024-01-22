@@ -8,14 +8,11 @@ import {
     Question, 
     Settings 
 } from "@/icons";
-import { usePathname } from 'next/navigation';
 import Tab from "./tab";
 
 export default function Sidebar() {
-    const pathname = usePathname();
-
     return (
-      <div className="w-bar h-screen p-8">
+      <div className="w-bar h-screen p-8 pr-0 flex flex-col">
         {/* Logos */}
         <h1 className="font-bold text-xl mt-1 mb-14">YOURLOGO</h1>
         {/* Tabs 1 */}
