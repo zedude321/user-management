@@ -14,3 +14,4 @@ export * from './search';
 export * from './configure';
 export * from './pen';
 export * from './trash';
+export * from './xIcon';

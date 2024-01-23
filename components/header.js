@@ -1,6 +1,6 @@
 import { ArrowDown, BellBadge } from "@/icons";
 
-export default function Header() {
+export function Header() {
     return (
         <div>
             {/* Header */}

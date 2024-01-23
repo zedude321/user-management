@@ -9,6 +9,9 @@ module.exports = {
     extend: {
       width: {
         'bar': '254px',
+        'modal-2xl': '1144px',
+        'modal-xl': '1024px',
+        'modal-lg': '820px',
       },
       colors: {
         'primary': '#4A85F6',
@@ -16,6 +19,7 @@ module.exports = {
         'light-gray': '#C2C2C2',
         'dark-gray': '#404040',
         'light-blue': '#8F9BB3',
+        'dark-blue': '#18203A',
         'cyan': '#0095FF',
       },
     },

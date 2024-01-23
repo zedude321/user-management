@@ -1,7 +1,7 @@
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/router";
 
-export default function Tab ({text, children, path}) {
+export function Tab ({text, children, path}) {
     const pathname = usePathname();
     const router = useRouter();
 

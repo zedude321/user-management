@@ -1,9 +1,9 @@
 import { Search } from "@/icons";
 
-export default function Input ({placeholder, className, ...other}) {
+export function Input ({placeholder, className, searchIcon = false, ...other}) {
     return (
         <div className={"flex items-center " + className}>
-            <Search />
+            {searchIcon && <Search />}
             <input {...other} className="p-3 outline-none w-full placeholder:text-dark-gray" placeholder={placeholder} />
         </div>
     )

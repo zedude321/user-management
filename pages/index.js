@@ -1,7 +1,4 @@
-import Button from "@/components/button";
-import Input from "@/components/input";
-import Layout from "@/components/layout";
-import ListItem from "@/components/listItem";
+import { ListItem, Layout, Input, Button, AddUser } from "@/components/";
 import { ArrowLeft, ArrowRight, Configure, Pen, Trash } from "@/icons";
 import { useEffect, useState } from "react";
 
@@ -9,6 +6,7 @@ export default function Home() {
   const [data, setData] = useState();
   const [itemsPerPage, setItemsPerPage] = useState(6);
   const [page, setPage] = useState(0);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     setData(dataSet);
@@ -24,17 +22,27 @@ export default function Home() {
     return page > 0;
   }
   const ifPageUp = () => {
-    return data && page < Math.floor(data.length/itemsPerPage)
+    return data && (page+1)*itemsPerPage < data.length
+  }
+
+  const add = (name, email, type) => {
+    const month = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    let temp = {
+      name, email, type, role: 'Lorem Ipsum', date: `${new Date().getDate()} ${month[new Date().getMonth()]}, ${new Date().getFullYear()}`
+    }
+    setData([temp, ...data]);
+    setOpen(false)
   }
 
   return (
     <Layout>
+      <AddUser open={open} setOpen={setOpen} add={add} />
       {/* Search */}
       <div className="flex flex-col gap-4 w-full p-5">
         <h1 className="font-bold text-primary text-2xl">Users Dashboard</h1>
         <div className="flex items-center gap-8">
-          <Input className='w-full' placeholder='Search' />
-          <Button className='whitespace-nowrap py-3 flex items-center'>Add User <p className="font-bold text-xl ml-1"> +</p></Button>
+          <Input searchIcon className='w-full' placeholder='Search' />
+          <Button onClick={() => setOpen(true)} className='whitespace-nowrap py-3 flex items-center'>Add User <p className="font-bold text-xl ml-1"> +</p></Button>
 
           <select name='sort' className="bg-transparent outline-none text-lg font-semibold">
             <option className="font-normal text-base" value=''>Sort by</option>

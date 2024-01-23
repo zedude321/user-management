@@ -8,9 +8,9 @@ import {
     Question, 
     Settings 
 } from "@/icons";
-import Tab from "./tab";
+import { Tab } from "./";
 
-export default function Sidebar() {
+export function Sidebar() {
     return (
       <div className="w-bar h-screen p-8 pr-0 flex flex-col">
         {/* Logos */}

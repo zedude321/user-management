@@ -1,7 +1,6 @@
-import Header from "./header";
-import Sidebar from "./sidebar";
+import { Header, Sidebar } from "./";
 
-export default function Layout({ children }) {
+export function Layout({ children }) {
     return (
         <div className="flex">
             <Sidebar />
