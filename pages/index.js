@@ -1,4 +1,4 @@
-import { ListItem, Layout, Input, Button, AddUser } from "@/components/";
+import { Layout, Input, Button, AddUser, UserListItem } from "@/components/";
 import { ArrowLeft, ArrowRight, Configure, Pen, Trash } from "@/icons";
 import { useEffect, useState } from "react";
 
@@ -68,12 +68,12 @@ export default function Home() {
           {data && data.map((e, i) => {
             if (i < itemsPerPage * (page+1) && i >= itemsPerPage*page)
               return (
-                <ListItem name={e.name} email={e.email} type={e.type} date={e.date} role={e.role}>
+                <UserListItem name={e.name} email={e.email} type={e.type} date={e.date} role={e.role}>
                   <p className="justify-self-end flex gap-5 text-light-gray">
                     <Pen className='cursor-pointer' />
                     <Trash className='cursor-pointer' onClick={() => deleteData(i)} />
                   </p>
-                </ListItem>
+                </UserListItem>
               )
           })}
         </div>

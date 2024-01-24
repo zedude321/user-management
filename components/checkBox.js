@@ -1,4 +1,4 @@
-import { CheckIcon } from "@/icons/checkIcon";
+import { CheckIcon } from "@/icons/";
 
 export function CheckBox ({checked, ...other}) {
     return (

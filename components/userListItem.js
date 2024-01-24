@@ -1,4 +1,4 @@
-export function ListItem ({name, email, type, date, role, children}) {
+export function UserListItem ({name, email, type, date, role, children}) {
     return (
         <>
             <div className="col-span-2 pl-6">

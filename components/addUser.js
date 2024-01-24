@@ -6,6 +6,7 @@ export function AddUser ({open, setOpen, add}) {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [type, setType] = useState('');
+    const [id, setID] = useState('');
 
     if (open)
         return (
@@ -19,7 +20,7 @@ export function AddUser ({open, setOpen, add}) {
                 </div>
                 {/* Form */}
                 <div className="grid grid-cols-6 gap-4 px-5">
-                    <Input className='w-full col-span-6' placeholder='User ID *' />
+                    <Input value={id} onChange={(e) => setID(e.target.value)} className='w-full col-span-6' placeholder='User ID *' />
                     <Input className='w-full col-span-3' placeholder='First Name *' />
                     <Input className='w-full col-span-3' placeholder='Last Name *' />
                     <Input value={email} onChange={(e) => setEmail(e.target.value)} className='w-full col-span-2' placeholder='Email ID *' />
@@ -64,8 +65,8 @@ export function AddUser ({open, setOpen, add}) {
                 </div>
                 {/* Actions */}
                 <div className="w-full flex justify-end">
-                    <Button onClick={() => {add(name, email, type); setName(''); setEmail(''); setType('')}} className='!bg-cyan text-xs py-1 mr-4'>Add User</Button>
-                    <Button onClick={() => setOpen(false)} className='!bg-transparent text-cyan text-xs py-1 mr-4'>Cancel</Button>
+                    <Button onClick={() => {add(name, email, type, id); setName(''); setEmail(''); setType('')}} className='!bg-cyan text-xs py-1 mr-4'>Add User</Button>
+                    <Button onClick={() => setOpen(false)} className='!bg-transparent !text-cyan text-xs py-1 mr-4'>Cancel</Button>
                 </div>
             </div>
         </div>

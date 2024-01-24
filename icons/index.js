@@ -15,3 +15,5 @@ export * from './configure';
 export * from './pen';
 export * from './trash';
 export * from './xIcon';
+export * from './checkIconCircle';
+export * from './checkIcon';
