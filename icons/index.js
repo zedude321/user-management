@@ -22,3 +22,4 @@ export * from './expand';
 export * from './delete';
 export * from './doc';
 export * from './print';
+export * from './pencil';
