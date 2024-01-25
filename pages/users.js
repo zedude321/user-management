@@ -38,8 +38,8 @@ export default function Users () {
         <Layout>
             <AddUser open={open} setOpen={setOpen} add={add} />
             {/* Search */}
-            <div className="flex flex-col gap-4 w-full p-5">
-                <h1 className="font-bold text-primary text-2xl">Users</h1>
+            <div className="flex flex-col gap-4 w-full pt-5">
+                <h1 className="font-bold text-primary text-2xl pl-5">Users</h1>
                 <div className="flex items-center gap-8">
                 <Input searchIcon className='w-full' placeholder='Search' />
                 <Button onClick={() => setOpen(true)} className='whitespace-nowrap py-3 flex items-center'>Add User <p className="font-bold text-xl ml-1"> +</p></Button>
@@ -51,30 +51,30 @@ export default function Users () {
                     <option className="font-normal text-base" value=''>Saved Search</option>
                 </select>
 
-                <Configure className='text-dark-gray' />
+                <Configure className='text-dark-gray shrink-0' />
                 </div>
             </div>
             {/* Data */}
-            <div className="flex w-full">
-                <div className="flex grow flex-col p-5">
+            <div className="flex w-full gap-4 my-6">
+                <div className="flex grow flex-col p-5 bg-white rounded-lg">
                     <p className="text-sm text-light-blue mb-2">Lorem Ipsum</p>
                     <h1 className="text-xl font-bold ">614</h1>
                 </div>
-                <div className="flex grow flex-col p-5">
+                <div className="flex grow flex-col p-5 bg-white rounded-lg">
                     <p className="text-sm text-light-blue mb-2">Lorem Ipsum</p>
                     <h1 className="text-xl font-bold ">614</h1>
                 </div>
-                <div className="flex grow flex-col p-5">
+                <div className="flex grow flex-col p-5 bg-white rounded-lg">
                     <p className="text-sm text-light-blue mb-2">Lorem Ipsum</p>
                     <h1 className="text-xl font-bold ">614</h1>
                 </div>
-                <div className="flex grow flex-col p-5">
+                <div className="flex grow flex-col p-5 bg-white rounded-lg">
                     <p className="text-sm text-light-blue mb-2">Lorem Ipsum</p>
                     <h1 className="text-xl font-bold ">614</h1>
                 </div>
             </div>
             {/* List */}
-            <div className="grid grid-cols-11 bg-[#EFF4FA] p-5 text-light-blue font-semibold">
+            <div className="grid grid-cols-11 bg-[#EFF4FA] p-5 text-light-blue font-semibold rounded-t-lg">
                 <p className="col-span-2">Name</p>
                 <p className="col-span-2 ">User ID</p>
                 <p className="col-span-2 ">Lorem Ipsum</p>
@@ -82,11 +82,11 @@ export default function Users () {
                 <p className="col-span-2 ">Lorem Ipsum</p>
                 <p className="text-end pr-6">Action</p>
             </div>
-            <div className="grid grid-cols-11 p-5 text-xs gap-y-12 overflow-scroll max-h-[44vh]">
+            <div className="bg-white rounded-b-lg px-5 text-xs overflow-scroll max-h-[44vh] divide-y divide-bg">
                 {data && data.map((e, i) => {
                     if (i < itemsPerPage * (page+1) && i >= itemsPerPage*page) 
                         return (
-                            <>
+                            <div className="grid grid-cols-11 py-6">
                                 <p className="col-span-2 font-semibold pl-9">{e.name}</p>
                                 <p className="col-span-2 ">{e.id}</p>
                                 <p className="col-span-2 ">Lorem Ipsum</p>
@@ -96,7 +96,7 @@ export default function Users () {
                                     <CheckIconCircle className='cursor-pointer' />
                                     <Trash className='cursor-pointer' onClick={() => deleteData(i)} />
                                 </p>
-                            </>
+                            </div>
                         )
                 })}
             </div>

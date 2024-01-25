@@ -17,3 +17,8 @@ export * from './trash';
 export * from './xIcon';
 export * from './checkIconCircle';
 export * from './checkIcon';
+export * from './paintBucket';
+export * from './expand';
+export * from './delete';
+export * from './doc';
+export * from './print';

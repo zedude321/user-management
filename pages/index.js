@@ -38,8 +38,8 @@ export default function Home() {
     <Layout>
       <AddUser open={open} setOpen={setOpen} add={add} />
       {/* Search */}
-      <div className="flex flex-col gap-4 w-full p-5">
-        <h1 className="font-bold text-primary text-2xl">Users Dashboard</h1>
+      <div className="flex flex-col gap-4 w-full py-5">
+        <h1 className="font-bold text-primary text-2xl pl-5">Users Dashboard</h1>
         <div className="flex items-center gap-8">
           <Input searchIcon className='w-full' placeholder='Search' />
           <Button onClick={() => setOpen(true)} className='whitespace-nowrap py-3 flex items-center'>Add User <p className="font-bold text-xl ml-1"> +</p></Button>
@@ -51,11 +51,11 @@ export default function Home() {
             <option className="font-normal text-base" value=''>Saved Search</option>
           </select>
 
-          <Configure className='text-dark-gray' />
+          <Configure className='text-dark-gray shrink-0' />
         </div>
       </div>
       {/* List */}
-      <div>
+      <div className="bg-white rounded-2xl">
         <h2 className="font-semibold p-5">List Users</h2>
         <div className="grid grid-cols-6 bg-[#EFF4FA] p-6 text-light-blue font-semibold">
           <p className="col-span-3 pl-2">Name</p>
@@ -64,16 +64,25 @@ export default function Home() {
           <p className=" text-end pr-4">Action</p>
         </div>
         {/* Users */}
-        <div className="grid grid-cols-6 p-5 gap-y-10 text-sm overflow-scroll max-h-[52vh]">
+        <div className="px-5 text-sm overflow-scroll max-h-[52vh] divide-y divide-bg">
           {data && data.map((e, i) => {
             if (i < itemsPerPage * (page+1) && i >= itemsPerPage*page)
               return (
-                <UserListItem name={e.name} email={e.email} type={e.type} date={e.date} role={e.role}>
-                  <p className="justify-self-end flex gap-5 text-light-gray">
+                <div className="grid grid-cols-6 pl-4 py-5">
+                  <div className="col-span-2 pl-6">
+                    <h3 className="font-semibold text-sm">{e.name}</h3>
+                    <p className="text-gray text-sm">{e.email}</p>
+                  </div>
+                  <div className={`${e.type=='Employee' ? 'bg-accent text-light-blue' : 'bg-cyan text-white'} font-semibold text-center justify-self-end mr-16 min-w-32 p-1 px-4 rounded-lg text-sm h-fit`}>
+                    {e.type}
+                  </div>
+                  <p className="text-sm">{e.date}</p>
+                  <p className="text-sm">{e.role}</p>
+                  <p className="justify-self-end flex gap-5 text-light-gray pr-2">
                     <Pen className='cursor-pointer' />
                     <Trash className='cursor-pointer' onClick={() => deleteData(i)} />
                   </p>
-                </UserListItem>
+                </div>
               )
           })}
         </div>

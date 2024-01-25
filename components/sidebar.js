@@ -12,7 +12,7 @@ import { Tab } from "./";
 
 export function Sidebar() {
     return (
-      <div className="w-bar h-screen p-8 pr-0 flex flex-col">
+      <div className="w-bar h-screen p-8 pr-0 flex flex-col bg-white shrink-0">
         {/* Logos */}
         <h1 className="font-bold text-xl mt-1 mb-14">YOURLOGO</h1>
         {/* Tabs 1 */}
